@@ -1,6 +1,7 @@
 # Created by https://www.toptal.com/developers/gitignore/api/eclipse,intellij,intellij+all,intellij+iml
 # Edit at https://www.toptal.com/developers/gitignore?templates=eclipse,intellij,intellij+all,intellij+iml
-.gitignore
+src/*.java
+*.gitignore
 ### Eclipse ###
 .metadata
 bin/

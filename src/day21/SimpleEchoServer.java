@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.function.Supplier;
 
 public class SimpleEchoServer {
     public static void main(String[] args) {
@@ -20,11 +21,19 @@ public class SimpleEchoServer {
             try {
                 br = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
                 pw = new PrintWriter(clientSocket.getOutputStream(), true);
-                String line;
-                while ((line = br.readLine()) != null) {
-                    System.out.println("클라이언트로 부터 받은 메세지 : " + line);
-                    pw.println(line);  // 클라이언트로 송신
-                }
+//                String line;
+//                while ((line = br.readLine()) != null) {
+//                    System.out.println("클라이언트로 부터 받은 메세지 : " + line);
+//                    pw.println(line);  // 클라이언트로 송신
+//                }
+                Supplier<String> socketInput = () -> {
+                    try {
+                        return br.readLine();
+                    } catch (IOException ex) {
+                        return null;
+                    }
+                };
+
             } catch (IOException e) {
                 throw new RuntimeException(e);
             } finally {
