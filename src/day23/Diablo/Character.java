@@ -1,4 +1,6 @@
-package day23;
+package day23.Diablo;
+
+import day23.Diablo.WeaponBehavior;
 
 public abstract class Character {
     protected int hp;

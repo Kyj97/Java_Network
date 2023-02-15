@@ -1,4 +1,4 @@
-package day23;
+package day23.Diablo;
 
 public class Amazon extends Character {
     public Amazon() {
