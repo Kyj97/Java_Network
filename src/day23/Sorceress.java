@@ -1,4 +1,4 @@
-package day23.Diablo;
+package day23;
 
 public class Sorceress extends Character {
 
@@ -8,7 +8,7 @@ public class Sorceress extends Character {
     }
 
     @Override
-    public void info() {
+    void info() {
         System.out.println("체력 : " + hp + "\n지능 : " + mp);
 
     }

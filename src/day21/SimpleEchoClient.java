@@ -16,19 +16,24 @@ public class SimpleEchoClient {
             PrintWriter pw = null;
             BufferedReader br = null;
             try{
-                clientSocket = new Socket("127.0.0.1", 20000);
+                clientSocket = new Socket("165.246.115.165", 20000);
                 pw = new PrintWriter(clientSocket.getOutputStream(), true);
                 br = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
 
                 System.out.println("서버에 연결됨");
                 Scanner sc = new Scanner(System.in);
                 while (true) {
-                    System.out.print("전송 메세지 입력 : ");
+                    System.out.print("전송 메세지 입력(입력 형식:숫자 + 숫자, 종료:exit) : ");
                     String line = sc.nextLine();
                     if ("exit".equalsIgnoreCase(line)) {
                         break;  // 종료 조건
+                        // else if (line.split(" ").length != 3) {
+//                        System.out.println("입력 형식이 올바르지 않습니다. 예) 23 + 5");
+//                        continue;}
                     }
-                    pw.println(line);  // 서버로 전송
+//
+                    else{
+                    pw.println(line);}  // 서버로 전송
                     // 서버로 부터 수신받은 객체에서 라인 단위로 문자열 리턴
                     System.out.println("서버로 부터 받은 메세지 : " + br.readLine());
                 }

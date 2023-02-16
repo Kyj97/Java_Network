@@ -10,8 +10,8 @@ public class TimeClient {
         System.out.println("멀티 캐스트 타임 클라이언트");
         MulticastSocket socket = null;
         try{
-            socket = new MulticastSocket(10000);
-            InetAddress group = InetAddress.getByName("224.0.0.117");
+            socket = new MulticastSocket(20000);
+            InetAddress group = InetAddress.getByName("165.246.115.165");
             socket.joinGroup(group);
             System.out.println("멀티캐스트 타임 서버 그룹에 조인 완료");
             byte[] buffer = new byte[256];

@@ -1,4 +1,4 @@
-package day23.Diablo;
+package day23;
 
 public class Barbarian extends Character {
 
