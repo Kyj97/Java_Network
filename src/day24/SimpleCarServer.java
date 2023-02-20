@@ -1,17 +1,18 @@
-package day21;
+package day24;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.Objects;
 import java.util.StringTokenizer;
 // IP 165.246.115.165 포트 20000
 
-public class SimpleEchoServer implements Runnable {
+public class SimpleCarServer implements Runnable {
     // 다중 접속 에코 서버
     private static Socket clientSocket;
-    public SimpleEchoServer(Socket clientSocket)
+    public SimpleCarServer(Socket clientSocket)
     {
         this.clientSocket = clientSocket;
     }
@@ -21,7 +22,7 @@ public class SimpleEchoServer implements Runnable {
             while (true) {
                 System.out.println("클라이언트 접속 대기 중.....");
                 clientSocket = serverSocket.accept();
-                SimpleEchoServer tes = new SimpleEchoServer(clientSocket);
+                SimpleCarServer tes = new SimpleCarServer(clientSocket);
                 new Thread(tes).start();
             }
         } catch (IOException ex) {
@@ -50,8 +51,16 @@ public class SimpleEchoServer implements Runnable {
                     case "*" -> op1 * op2;
                     default -> Integer.parseInt("error");
                 };
-
-                out.println(inputLine + " = " + result);
+//                if (Objects.equals(op, "+")){result = op1 + op2;
+//                    break;}
+//                else if (Objects.equals(op, "-")) {result = op1 - op2;
+//                    break;}
+//                else if (Objects.equals(op, "*")) {result = op1 * op2;
+//                    break;
+//                }
+//                else {result = Integer.parseInt("error");}
+//                out.println(result);
+                out.println(inputLine + "=" + result);
 
             }
             System.out.println(Thread.currentThread() +" 클라이언트가 종료됨"); }
